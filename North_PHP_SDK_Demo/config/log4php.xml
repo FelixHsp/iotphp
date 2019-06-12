@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://logging.apache.org/log4php/">
+
+    <appender name="myConsoleAppender" class="LoggerAppenderConsole" />
+
+    <appender name="myFileAppender" class="LoggerAppenderRollingFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s} [%level] %logger\%method (%logger{0}.php:%line)-->%message%newline%ex" />
+        </layout>
+        <param name="file" value="d:/php_sdk/log/php_sdk.log" />
+        <param name="maxFileSize" value="512KB" />
+        <param name="maxBackupIndex" value="99999" />
+    </appender>
+
+    <!--LoggerLevel
+        OFF: Turn off logging
+        FATAL:
+        ERROR:
+        WARN:
+        INFO:
+        DEBUG:
+        TRACE:
+        ALL:
+    -->
+    <root>
+        <level value="INFO" />
+        <appender_ref ref="myFileAppender" />
+    </root>
+</configuration>
